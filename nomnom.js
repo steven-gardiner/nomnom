@@ -209,6 +209,9 @@ ArgParser.prototype = {
     if (argv.indexOf("--help") >= 0 || argv.indexOf("-h") >= 0) {
       return this.print(this.getUsage());
     }
+    if (argv.indexOf("--help-commands") >= 0) {
+      return this.print(_(this.commands).keys().join(" "));
+    }
 
     var options = {};
     var args = argv.map(function(arg) {
